@@ -10,6 +10,7 @@ import java.util.Optional;
 
 import org.testng.annotations.Test;
 
+import de.qudosoft.acceptors.EmptyListConsumer;
 import de.qudosoft.acceptors.SingleItemConsumer;
 import de.qudosoft.acceptors.interfaces.IConsumer;
 
@@ -31,12 +32,7 @@ public class ConsumerUnionTest {
 		}
 	};
 	
-	private IConsumer<Object> emptyListConsumer = new IConsumer<Object>() {
-		@Override
-		public Optional<List<Object>> consume(List<Object> input) {
-			return Optional.of(Collections.emptyList());
-		}
-	};
+	private IConsumer<Object> emptyListConsumer = new EmptyListConsumer<>();
 	
 	@Test
 	public void unionConsumerConsumesUnion() {
